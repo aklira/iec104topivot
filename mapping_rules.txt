@@ -1,0 +1,98 @@
+{
+    "data_object":{
+       "do_type":"M_SP_TB_1",
+       "do_ca":18325,
+       "do_oa":"0",
+       "do_cot":3,
+       "do_test":false,
+       "do_negative":false,
+       "do_ioa":6468178,
+       "do_value":1,
+       "do_quality":0,
+       "do_ts":1653484330239,
+       "do_ts_qual":false,
+       "do_ts_sum_time":false
+    }
+ }
+
+ {
+    "data_object":{
+       "do_type":"M_SP_TB_1",
+       "do_ca":18325,
+       "do_oa":0,
+       "do_cot":3,
+       "do_test":false,
+       "do_negative":false,
+       "do_ioa":6468178,
+       "do_value":1,
+       "do_quality_iv":true,
+       "do_quality_bl":false,
+       "do_quality_ov":false,
+       "do_quality_sb":false,
+       "do_quality_nt":false,
+       "do_ts":1653484330239,
+       "do_ts_iv":true,
+       "do_ts_su":false,
+       "do_ts_sub":false
+    }
+ }
+
+ "do_type":"M_SP_TB_1" => Create a Pivot LN GTIS with CDC "SpsTyp"
+ "do_ca":18325 + "do_ioa":6468178 => GTIS.Identifier (using "Exchanged_data.json", gives us the PivotID = "S_1145_6_21_28")
+ "do_oa":"0" => GTIS.Origin.stVal
+ "do_cot":3 => GTIS.Cause.stVal
+ "do_test":false => GTIS.SpsTyp.q.test
+ "do_negative":false => GTIS.Confirmation.stVal
+ "do_value":1 => GTIS.SpsTyp.stVal
+ if "do_quality" = IEC60870_QUALITY_GOOD => GTIS.SpsTyp.q.Validity = "good"
+ else if "do_quality" = IEC60870_QUALITY_OVERFLOW => GTIS.SpsTyp.q.DetailQuality.overflow = true
+ else if "do_quality" = IEC60870_QUALITY_RESERVED => not used
+ else if "do_quality" = IEC60870_QUALITY_ELAPSED_TIME_INVALID => used with some protection event related types like M_EP_TD_1
+ else if "do_quality" = IEC60870_QUALITY_BLOCKED => GTIS.SpsTyp.q.operatorBlocked = true
+ else if "do_quality" = IEC60870_QUALITY_SUBSTITUTED => GTIS.SpsTyp.q.Source = "substituted"
+ else if "do_quality" = IEC60870_QUALITY_NON_TOPICAL => GTIS.SpsTyp.q.Validity = "questionable"
+ else if "do_quality" = IEC60870_QUALITY_INVALID => GTIS.SpsTyp.q.Validity = "invalid"
+ "do_ts":1653484330239 => GTIS.SpsTyp.t.SecondSinceEpoch
+ "do_ts_valid":false => GTIS.TmValidity.stVal
+ "do_ts_sum_time":false => ?
+ "do_ts_sub":false => GTIS.TmOrg.stVal
+
+{
+    "PIVOTTS":{
+       "GTIS":{
+          "Cause":{
+             "stVal":1
+          },
+          "ComingFrom":"IEC104",
+          "Confirmation":{
+             "stVal":true
+          },
+          "Identifier":"String",
+          "Origin":{
+             "stVal":"String"
+          },
+          "SpsTyp":{
+             "q":{
+                "DetailQuality":{
+                   "overflow":true
+                },
+                "Source":"process",
+                "Validity":"good",
+                "operatorBlocked":true,
+                "test":true
+             },
+             "stVal":true,
+             "t":{
+                "FractionOfSecond":1,
+                "SecondSinceEpoch":1
+             }
+          },
+          "TmOrg":{
+             "stVal":"genuine"
+          },
+          "TmValidity":{
+             "stVal":"VALID"
+          }
+       }
+    }
+ }

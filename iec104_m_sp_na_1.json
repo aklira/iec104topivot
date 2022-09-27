@@ -1,0 +1,21 @@
+{
+    "data_object":{
+       "do_type":"M_SP_TB_1",
+       "do_ca":18325,
+       "do_oa":0,
+       "do_cot":3,
+       "do_test":false,
+       "do_negative":false,
+       "do_ioa":6468178,
+       "do_value":1,
+       "do_quality_iv":true,
+       "do_quality_bl":false,
+       "do_quality_ov":false,
+       "do_quality_sb":false,
+       "do_quality_nt":false,
+       "do_ts":1653484330239,
+       "do_ts_iv":true,
+       "do_ts_su":false,
+       "do_ts_sub":false
+    }
+ }

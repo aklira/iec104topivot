@@ -1,0 +1,40 @@
+{
+    "data_object":{
+       "do_type":"M_SP_TB_1",
+       "do_ca":18325,
+       "do_oa":0,
+       "do_cot":3,
+       "do_test":false,
+       "do_negative":false,
+       "do_ioa":6468178,
+       "do_value":1,
+       "do_quality_iv":true,
+       "do_quality_bl":false,
+       "do_quality_ov":false,
+       "do_quality_sb":false,
+       "do_quality_nt":false,
+       "do_ts":1653484330239,
+       "do_ts_iv":true,
+       "do_ts_su":false,
+       "do_ts_sub":false
+    }
+ }
+
+ # RULE: if an attribute is not required, then it is not put in the output object
+ # The structure of the output object fits the ASDU type id
+
+
+ {
+   "command_object":{
+      "co_type":"type_id",
+      "co_ca":"ca",
+      "co_oa":"oa",
+      "co_cot":"cot",
+      "co_test":"istest",
+      "co_ioa":"ioa",
+      "co_value":"value",
+      "co_qu":"pulse",
+      "co_se":"Select/Execute",
+      "co_ts":"time_marker"
+   }
+}
